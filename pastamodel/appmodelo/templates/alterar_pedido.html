@@ -11,6 +11,7 @@
     <h1>Alterar Pedido</h1>
     <form method="post">
         {% csrf_token %}
+        {{form.as_p}}
         <label for="cliente">Cliente:</label><br>
         <input type="text" id="cliente" name="cliente" value="{{ form.instance.cliente }}"><br><br>
         <label for="produto">Produto:</label><br>

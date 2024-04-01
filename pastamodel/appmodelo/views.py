@@ -69,10 +69,13 @@ def deletar_pedido(request, pedido_id):
 def alterar_cliente(request, cliente_id):
     cliente = Cliente.objects.get(id=cliente_id)
     if request.method == 'POST':
+        if form.is_valid():
+            form.save()
         # Lógica para processar o formulário de alteração do cliente
         return redirect('listar_clientes')
     else:
-        return render(request, 'alterar_cliente.html', {'cliente': cliente})
+        form = ClienteForm(instance=cliente)
+        return render(request, 'alterar_cliente.html', {'form': form})
 
 def deletar_cliente(request, cliente_id):
     cliente = Cliente.objects.get(id=cliente_id)
@@ -82,10 +85,15 @@ def deletar_cliente(request, cliente_id):
 def alterar_produto(request, produto_id):
     produto = Produto.objects.get(id=produto_id)
     if request.method == 'POST':
+        if form.is_valid():
+            form.save()
         # Lógica para processar o formulário de alteração do produto
         return redirect('listar_produtos')
     else:
-        return render(request, 'alterar_produto.html', {'produto': produto})
+        form = ProdutoForm(instance=produto)
+        return render(request, 'alterar_produto.html', {'form': form})
+        
+        
 
 def deletar_produto(request, produto_id):
     produto = Produto.objects.get(id=produto_id)

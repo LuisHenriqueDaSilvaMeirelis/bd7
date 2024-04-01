@@ -18,6 +18,8 @@ urlpatterns = [
     path('deletar_cliente/<int:cliente_id>/', views.deletar_cliente, name='deletar_cliente'),
     path('alterar_produto/<int:produto_id>/', views.alterar_produto, name='alterar_produto'),
     path('deletar_produto/<int:produto_id>/', views.deletar_produto, name='deletar_produto'),
+    path('deletar_clientes/<int:cliente_id>/', views.deletar_cliente, name='deletar_cliente'),
+    path('deletar_produto/<int:produto_id>/', views.deletar_produto, name='deletar_produto')
 
 
 ]
